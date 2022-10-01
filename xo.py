@@ -3,21 +3,21 @@ players=['X','O']
 diagA=[]
 diagB=[]
 ok=True
-indice=0
-indicePlayer=[1,2]
-while ok and indice<=9:
-    print("\nplayer : "+str(indicePlayer[indice%2]))
+index=0
+indexPlayer=[1,2]
+while ok and index<=9:
+    print("\nplayer : "+str(indexPlayer[index%2]))
     while True:
         ligne=int(input("entree la ligne de la case"))
         colonne=int(input("entree la colonne de la case"))
         if ligne==colonne:
-            diagA.append(indice%2)
+            diagA.append(players[index%2])
         if colonne+ligne==2:
-            diagB.append(indice%2)
+            diagB.append(players[index%2])
             
         if 0<=ligne<=2 and 0<=colonne<=2:
             if grille[ligne][colonne]=='.':
-                grille[ligne][colonne]=players[indice%2]
+                grille[ligne][colonne]=players[index%2]
                 break
         print("ERROR 404")
     
@@ -39,4 +39,4 @@ while ok and indice<=9:
         print("|".join("".join("".join((str(grille[j]).split(",")))[1:-1].split("'")).split(" ")))
         if j!=2:
             print("------")
-    indice+=1
+    index+=1
